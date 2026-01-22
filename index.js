@@ -49,9 +49,11 @@ app.get("/vocab", (req, res) => {
 });
 
 app.post("/vocab", (req, res) => {
+  const raw = req.body.q;
+  const query = typeof raw === "string" ? raw.trim() : "";
   const options = {
     method: "GET",
-    url: `https://wordsapiv1.p.rapidapi.com/words/${req.body.q}`,
+    url: `https://wordsapiv1.p.rapidapi.com/words/${query}`,
     headers: {
       "x-rapidapi-key": APIKey,
       "x-rapidapi-host": APIHost,
@@ -61,19 +63,17 @@ app.post("/vocab", (req, res) => {
   async function fetchData() {
     try {
       const response = await axios.request(options);
-      console.log(response.data.word);
       res.render("vocab.ejs", {
         year: thisyear,
         word: response.data.word,
         results: response.data.results,
-      })
-      console.log(response.data);
+      });
     } catch (error) {
-      res.render("vocab.ejs",{
-        year:thisyear,
+      res.render("vocab.ejs", {
+        year: thisyear,
         word: `${req.body.q} is not in this dictionary, try another one please!`,
         results: null,
-      })
+      });
     }
   }
 

@@ -2,7 +2,7 @@ import express from "express";
 import bodyParser from "body-parser";
 import axios from "axios";
 
-const PORT = process.env.PORT || 3000;
+const port = process.env.PORT || 3000;
 const app = express();
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));

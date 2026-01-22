@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header class="site-header">
+  <div class="container">
+    <a class="brand" href="#">
+      <span class="spark">✦</span>
+      <span class="brand-text">Lexi</span>
+    </a>
+
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="nav" aria-label="Primary">
+        <a class="nav-link" href="/">Home</a>
+      <a class="nav-link" href="/vocab">Dictionary</a>
+      <a class="nav-link" href="#">AI assisstant</a>
+    </nav>
+
+    <div class="header-actions">
+        <form class="search-pill" action="/vocab" method="POST" role="search">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M10.5 3a7.5 7.5 0 1 0 4.7 13.3l3.5 3.4a1 1 0 0 0 1.4-1.4l-3.4-3.5A7.5 7.5 0 0 0 10.5 3Zm0 2a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11Z"
+            />
+          </svg>
+
+          <input
+            type="search"
+            name="q"
+            placeholder="Search words…"
+            aria-label="Search dictionary"
+            required
+          />
+
+          <kbd class="kbd">Ctrl K</kbd>
+        </form>
+      </div>
+  </div>
+</header>
+
+<script>
+  const btn = document.querySelector(".nav-toggle");
+  const nav = document.querySelector(".nav");
+  btn?.addEventListener("click", () => {
+    const open = nav.classList.toggle("open");
+    btn.setAttribute("aria-expanded", String(open));
+  });
+</script>
+
+<style>
+  :root{
+    /* Modern palette (Teal + Ink) */
+    --bg: #07161a;         /* page background (optional) */
+    --surface: #0b1f24;    /* header surface (dark) */
+    --surface-2:#0f2a31;   /* hover surface */
+    --text: #e9fbff;       /* primary text */
+    --muted:#a6c6cf;       /* secondary text */
+    --accent:#37d6c3;      /* primary brand/accent */
+    --accent-2:#62a6ff;    /* secondary accent */
+    --stroke: rgba(255,255,255,.10);
+    --shadow: 0 10px 30px rgba(0,0,0,.25);
+    --radius: 14px;
+  }
+
+  *{ box-sizing:border-box; }
+  body{ margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial; background: var(--bg); color: var(--text); }
+
+  .site-header{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 50;
+    background: linear-gradient(180deg, rgba(11,31,36,.92), rgba(11,31,36,.78));
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--stroke);
+  }
+
+  .container{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    text-decoration:none;
+    color: var(--text);
+    font-weight: 800;
+    letter-spacing: .2px;
+  }
+  .spark{
+    width: 34px;
+    height: 34px;
+    display:grid;
+    place-items:center;
+    border-radius: 12px;
+    background: radial-gradient(circle at 30% 30%, var(--accent), rgba(55,214,195,.15) 60%);
+    box-shadow: 0 8px 22px rgba(55,214,195,.22);
+  }
+  .brand-text{ font-size: 18px; }
+
+  .nav{
+    display:flex;
+    align-items:center;
+    gap: 6px;
+    margin-left: 10px;
+  }
+  .nav-link{
+    text-decoration:none;
+    color: var(--muted);
+    padding: 10px 12px;
+    border-radius: 12px;
+    font-weight: 650;
+    transition: background .15s ease, color .15s ease, transform .15s ease;
+  }
+  .nav-link:hover{
+    background: var(--surface-2);
+    color: var(--text);
+  }
+  .nav-link.is-active{
+    background: rgba(55,214,195,.14);
+    color: var(--text);
+    border: 1px solid rgba(55,214,195,.25);
+  }
+
+  .header-actions{
+    margin-left:auto;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+
+  .search-pill{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding: 10px 12px;
+    border-radius: 999px;
+    background: rgba(255,255,255,.06);
+    border: 1px solid var(--stroke);
+    box-shadow: var(--shadow);
+    min-width: 340px;
+    max-width: 520px;
+  }
+  .search-pill input{
+    width: 100%;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    color: var(--text);
+    font-size: 14.5px;
+  }
+  .search-pill input::placeholder{ color: rgba(233,251,255,.55); }
+
+  .icon{ width: 18px; height: 18px; fill: currentColor; color: rgba(233,251,255,.85); }
+
+  .kbd{
+    font-size: 12px;
+    color: rgba(233,251,255,.75);
+    border: 1px solid rgba(255,255,255,.16);
+    background: rgba(255,255,255,.05);
+    padding: 4px 8px;
+    border-radius: 10px;
+    white-space: nowrap;
+  }
+
+  /* Mobile */
+  .nav-toggle{
+    display:none;
+    margin-left: auto;
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    border: 1px solid var(--stroke);
+    background: rgba(255,255,255,.06);
+    cursor:pointer;
+    padding: 10px;
+  }
+  .nav-toggle span{
+    display:block;
+    height:2px;
+    background: rgba(233,251,255,.9);
+    margin: 5px 0;
+    border-radius: 2px;
+  }
+
+  @media (max-width: 900px){
+    .search-pill{ min-width: 0; width: 100%; }
+    .nav-toggle{ display:block; }
+    .nav{
+      position: absolute;
+      left: 18px;
+      right: 18px;
+      top: 66px;
+      display: none;
+      flex-direction: column;
+      align-items: stretch;
+      padding: 10px;
+      border-radius: var(--radius);
+      background: rgba(11,31,36,.96);
+      border: 1px solid var(--stroke);
+      box-shadow: var(--shadow);
+    }
+    .nav.open{ display:flex; }
+    .container{ flex-wrap: wrap; }
+    .header-actions{ width: 100%; }
+  }
+</style>
+
+</body>
+</html>

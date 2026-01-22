@@ -1,0 +1,147 @@
+*{
+    margin:0;
+}
+
+body{
+  background:
+    radial-gradient(700px 320px at 50% 22%, rgba(55,214,195,.12), transparent 70%),
+    linear-gradient(180deg, #07161a 0%, #020b0e 100%);
+}
+
+
+
+.card-container{
+  min-height: calc(100vh - 80px); /* adjust if your header is different */
+  display: flex;
+  flex-direction: column;
+  gap: 3vh;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 18px;
+}
+
+
+.card{
+  width: min(920px, 100%);
+  display: grid;
+  grid-template-columns: 1.1fr 1.4fr;
+  gap: 26px;
+
+  padding: 22px;
+  border-radius: 18px;
+
+  background: linear-gradient(180deg, rgba(15,42,49,.95), rgba(11,31,36,.92));
+  border: 1px solid rgba(255,255,255,.08);
+  box-shadow:
+    0 40px 80px rgba(0,0,0,.45),
+    0 0 0 1px rgba(255,255,255,.04);
+
+  overflow: hidden; /* keeps image corners rounded nicely */
+  transform: translateZ(0); /* smoother rendering */
+}
+
+.card img{
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,.08);
+  filter: saturate(1.05) contrast(1.05);
+}
+
+.description{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+
+.title{
+  margin: 0;
+  font-size: 26px;
+  font-weight: 800;
+  color: rgba(233,251,255,.95);
+  letter-spacing: .2px;
+}
+
+.details{
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: rgba(166,198,207,.95);
+  max-width: 46ch;
+}
+
+.learn{
+  margin-top: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+
+  padding: 10px 16px;
+  border-radius: 12px;
+
+  text-decoration: none;
+  font-weight: 800;
+  color: #021214;
+
+  background: linear-gradient(135deg, #37d6c3, #62a6ff);
+  box-shadow: 0 14px 30px rgba(55,214,195,.18);
+  border: 1px solid rgba(255,255,255,.10);
+
+  transition: transform .15s ease, filter .15s ease;
+}
+
+.learn:hover{
+  transform: translateY(-2px);
+  filter: brightness(1.05);
+}
+
+.learn:active{
+  transform: translateY(0px);
+}
+
+@media (max-width: 820px){
+  .card.woty{
+    grid-template-columns: 1fr;
+  }
+  .card.woty img{
+    height: 200px;
+  }
+  .title{
+    font-size: 22px;
+  }
+}
+
+/* Vocab ejs */
+.vocab-container{
+    position: absolute;
+    left: 25%;
+    top: 30%;
+    width: 50%;
+}
+
+.word{
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.definition{
+    font-size: 2rem;
+    font-weight: bold;
+    margin-top: 1rem;
+}
+
+.example{
+    margin-top: 1rem;
+    font-size: 1.5rem;
+}
+
+.partOfSpeech{
+    margin-top: 1rem;
+}
+
+.example{
+    margin-bottom: 1rem;
+}

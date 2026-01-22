@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <%-include("partials/header.ejs") %>
+    <div class="card-container">
+      <div class="card woty">
+        <img src="images/woty.jpg" alt="Vocabulary tools on a desk" />
+
+        <div class="description">
+          <p class="title">Word of the year 2025</p>
+          <p class="details">
+            What is the most used word in 2025 (personal opinion)
+          </p>
+
+          <a
+            href="https://dictionary.cambridge.org/dictionary/english/skibidi?q=Skibidi"
+            class="learn"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Learn more</a
+          >
+        </div>
+      </div>
+
+      <div class="card random">
+        <img src="images/qsm.jpg" alt="Vocabulary tools on a desk" />
+        <div class="description">
+          <p class="title">Learn a random word</p>
+          <p class="details">Learn through randomness</p>
+
+          <a href="/vocab" class="learn">Learn</a>
+        </div>
+      </div>
+    </div>
+
+    <%-include("partials/footer.ejs") %>
+  </body>
+</html>

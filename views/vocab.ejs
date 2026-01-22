@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <%-include("partials/header.ejs") %>
+    <div class="vocab-container">
+        <%if(locals.word){  %> 
+            <div class="word-container">
+                <p class="word"><%=word %> </p>
+            </div>
+        <%} %> 
+
+        
+        <div class="def-container">
+            <%if(locals.results){  %> 
+                <%for(let i = 0;i<results.length;i++){  %>
+                    <hr>
+                    <p class="partOfSpeech"><%=results[i].partOfSpeech %> </p>
+                    <p class="definition"><%=results[i].definition  %></p>
+                    <%if(locals.results[i].examples){ %> 
+                        <ul class="example">
+                            <%for(let j = 0;j<results[i].examples.length;j++){  %> 
+                                <li><%=results[i].examples[j]  %></li>
+                            <%}%> 
+                        </ul>
+                    <%}else{  %> 
+                        <p class="example">No example for this word</p>
+                    <%}  %>
+                <%}  %> 
+            <%}else{ %>
+                <p>No result for this word :( </p>
+            <%} %> 
+            
+        </div>
+        <hr>
+    </div>
+    <%-include("partials/footer.ejs") %>
+</body>
+</html>

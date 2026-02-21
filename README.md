@@ -4,7 +4,6 @@ A simple full-stack dictionary web application built with **Node.js** and **Expr
 
 ## Demo
 - Live demo: https://dictionary-s8fn.onrender.com/
-- Screenshots: [Add 1–2 screenshots in `/assets` and link here]
 
 ## Features
 - Search for a word and display results from **WordsAPI**
